@@ -283,7 +283,7 @@ function Header() {
             <UtensilsCrossed size={19} />
           </span>
           <span>
-            Smart<span className="brand-blue">Queue</span>
+            Smart<span className="brand-blue">Q</span>
           </span>
         </Link>
 
