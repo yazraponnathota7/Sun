@@ -1,0 +1,8 @@
+{
+  "name": "LiveBuild",
+  "description": "Instantly transform your code into a live, functional web application with a single click.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
