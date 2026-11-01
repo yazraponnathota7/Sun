@@ -1198,6 +1198,8 @@ function Checkout() {
   const [pickup, setPickup] = useState('');
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const [paymentMethod, setPaymentMethod] = useState('CASH');
+  // const [paymentMethod, setPaymentCompleted] = useState(false);
   const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
 
   // Sync with profile when loaded
@@ -1347,17 +1349,54 @@ function Checkout() {
           </div>
 
           {/* Transparent Payment Selection */}
+
+
+          {/* Payment Selection */}
           <div className="panel">
             <h3>3. Payment method</h3>
+
             <label className="payment-choice cursor-pointer">
-              <input type="radio" checked readOnly />
+              <input
+                type="radio"
+                name="payment"
+                checked={paymentMethod === 'CASH'}
+                onChange={() => setPaymentMethod('CASH')}
+              />
               <span className="payment-symbol">₹</span>
               <span>
-                <b>Pay at counter / Cash on pickup</b>
-                <small>Present your digital token and settle via cash or UPI directly at the counter.</small>
+                <b>Cash on pickup</b>
+                <small>Pay at the canteen counter.</small>
               </span>
-              <CheckCircle2 className="payment-check text-green-600" />
             </label>
+
+            <label className="payment-choice cursor-pointer mt-3">
+              <input
+                type="radio"
+                name="payment"
+                checked={paymentMethod === 'UPI'}
+                onChange={() => setPaymentMethod('UPI')}
+              />
+              <span className="payment-symbol">₹</span>
+              <span>
+                <b>UPI Payment</b>
+                <small>Scan the QR code to pay.</small>
+              </span>
+            </label>
+
+            {paymentMethod === 'UPI' && (
+              <div className="mt-4 text-center">
+                <img
+                  src="/upi-qr.jpg"
+                  alt="UPI QR Code"
+                  style={{
+                    width: '220px',
+                    maxWidth: '100%',
+                    margin: '15px auto',
+                    borderRadius: '12px'
+                  }}
+                />
+              </div>
+            )}
           </div>
 
           {error && <div className="error-box">{error}</div>}
