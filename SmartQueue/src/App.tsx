@@ -241,7 +241,7 @@ export function App() {
             <span className="brand-mark small">
               <UtensilsCrossed size={16} />
             </span>
-            <span>SmartQueue</span>
+            <span>smartQ</span>
             <span className="muted">Made for campus life · Smart Canteen Management</span>
           </div>
         </footer>
@@ -530,7 +530,7 @@ function Auth({ mode }: { mode: 'signup' | 'login' | 'admin' }) {
         }
         const p = await api('/me');
         setProfile(p);
-        setToast(`Welcome to SmartQueue, ${p.full_name}!`);
+        setToast(`Welcome to smartQ, ${p.full_name}!`);
         nav('/home');
       } else {
         const { error: signInErr } = await supabase.auth.signInWithPassword({ email, password });
@@ -555,7 +555,7 @@ function Auth({ mode }: { mode: 'signup' | 'login' | 'admin' }) {
   return (
     <div className="auth-layout">
       <div className="auth-aside">
-        <div className="eyebrow light">SMARTQUEUE · SMART CANTEEN</div>
+        <div className="eyebrow light">smartQ · SMART CANTEEN</div>
         <h2>
           {admin
             ? 'The canteen, in control.'
@@ -585,7 +585,7 @@ function Auth({ mode }: { mode: 'signup' | 'login' | 'admin' }) {
           <UtensilsCrossed />
         </div>
         <div className="eyebrow">{admin ? 'STAFF ACCESS' : signup ? 'GET STARTED' : 'WELCOME BACK'}</div>
-        <h1>{admin ? 'Admin sign in' : signup ? 'Create your account' : 'Sign in to SmartQueue'}</h1>
+        <h1>{admin ? 'Admin sign in' : signup ? 'Create your account' : 'Sign in to smartQ'}</h1>
         <p className="muted">
           {admin
             ? 'Only authorized canteen managers can sign in here.'
