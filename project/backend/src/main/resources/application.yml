@@ -1,0 +1,22 @@
+server:
+  port: ${PORT:8080}
+spring:
+  datasource:
+    url: ${SUPABASE_DB_URL}
+    username: ${SUPABASE_DB_USERNAME}
+    password: ${SUPABASE_DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      maximum-pool-size: 5
+  jackson:
+    default-property-inclusion: non_null
+app:
+  cors-origins: ${APP_CORS_ORIGINS:http://localhost:5173}
+  timezone: ${APP_TIMEZONE:Asia/Kolkata}
+  supabase-url: ${SUPABASE_URL}
+  jwt-issuer: ${SUPABASE_JWT_ISSUER:${SUPABASE_URL}/auth/v1}
+  jwt-secret: ${SUPABASE_JWT_SECRET:}
+  razorpay:
+    key-id: ${RAZORPAY_KEY_ID:}
+    key-secret: ${RAZORPAY_KEY_SECRET:}
+    webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
